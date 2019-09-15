@@ -51,7 +51,10 @@
     <legend><b><spring:message code="presentation.submission"/></b></legend>
     <a href="submission/show.do?submissionId=${presentation.submission.id}"><spring:message code="presentation.submission2"/></a>
 </fieldset>
-<br>
+<p><a
+        href="comment/listCommentsPresentation.do?presentationId=${presentation.id}">
+    <spring:message code="conference.comments"/>
+</a></p>
 <acme:cancel code="button.cancel" url="/"/>
 </body>
 </html>

@@ -80,19 +80,24 @@
                         </a>
                     </display:column>
 
-                    <display:column>
-                        <a
-                                href="presentation/administrator/edit.do?presentationId=${row.id}">
-                            <spring:message code="button.edit"/>
-                        </a>
-                    </display:column>
 
-                    <display:column>
-                        <a
-                                href="presentation/administrator/delete.do?presentationId=${row.id}">
-                            <spring:message code="button.delete"/>
-                        </a>
-                    </display:column>
+                    <security:authorize access="hasRole('ADMIN')">
+                        <display:column>
+                            <a
+                                    href="presentation/administrator/edit.do?presentationId=${row.id}">
+                                <spring:message code="button.edit"/>
+                            </a>
+                        </display:column>
+                    </security:authorize>
+
+                    <security:authorize access="hasRole('ADMIN')">
+                        <display:column>
+                            <a
+                                    href="presentation/administrator/delete.do?presentationId=${row.id}">
+                                <spring:message code="button.delete"/>
+                            </a>
+                        </display:column>
+                    </security:authorize>
 
 
                 </display:table>
@@ -112,11 +117,36 @@
                     <display:column property="duration" title="${personalNameHeader}"/>
 
                     <display:column>
-                        <acme:cancel code="button.show" url="panel/show.do?panelId=${row.id}"/>
+                        <a
+                                href="panel/show.do?panelId=${row.id}">
+                            <spring:message code="button.show"/>
+                        </a>
                     </display:column>
+
+                    <security:authorize access="hasRole('ADMIN')">
+                        <display:column>
+                            <a
+                                    href="panel/administrator/edit.do?panelId=${row.id}">
+                                <spring:message code="button.edit"/>
+                            </a>
+                        </display:column>
+                    </security:authorize>
+
+                    <security:authorize access="hasRole('ADMIN')">
+                        <display:column>
+                            <a
+                                    href="panel/administrator/delete.do?panelId=${row.id}">
+                                <spring:message code="button.delete"/>
+                            </a>
+                        </display:column>
+                    </security:authorize>
+
                 </display:table>
             </p>
             <br>
+            <security:authorize access="hasRole('ADMIN')">
+                <acme:cancel code="button.createPanel" url="panel/administrator/create.do?conferenceId=${conference.id}"/>
+            </security:authorize>
         </fieldset>
 
     </fieldset>

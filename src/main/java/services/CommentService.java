@@ -36,6 +36,9 @@ public class CommentService {
     @Autowired
     private PresentationService presentationService;
 
+    @Autowired
+    private ActivityService activityService;
+
 
     public Collection<Comment> findAll(){
         Collection<Comment> res;
@@ -91,6 +94,19 @@ public class CommentService {
 
         Comment result = this.commentRepository.save(comment);
         presentation.getComments().add(result);
+
+        return result;
+    }
+
+    public Comment savePanel(Comment comment, int panelId){
+        Actor actor = this.actorService.getActorLogged();
+        comment.setActor(actor);
+
+        Activity panel = this.activityService.findOne(panelId);
+        Assert.notNull(panel);
+
+        Comment result = this.commentRepository.save(comment);
+        panel.getComments().add(result);
 
         return result;
     }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.*;
 
 import javax.validation.ValidationException;
+import java.awt.*;
 import java.util.Collection;
 
 @Controller
@@ -34,6 +35,9 @@ public class CommentController extends AbstractController {
 
     @Autowired
     private ActorService actorService;
+
+    @Autowired
+    private ActivityService activityService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView list(@RequestParam int conferenceId){
@@ -63,6 +67,23 @@ public class CommentController extends AbstractController {
             result.addObject("comments", comments);
             result.addObject("tutorialId", tutorialId);
             result.addObject("requestURI", "comment/listCommentsTutorial.do");
+        }catch (Throwable oops){
+            result = new ModelAndView("redirect:/");
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/listCommentsPanel", method = RequestMethod.GET)
+    public ModelAndView listCommentsPanel(@RequestParam int panelId){
+        ModelAndView result;
+        try{
+            Activity panel = this.activityService.findOne(panelId);
+            Assert.notNull(panel);
+            Collection<Comment> comments = panel.getComments();
+            result = new ModelAndView("comment/listCommentsPanel");
+            result.addObject("comments", comments);
+            result.addObject("panelId", panelId);
+            result.addObject("requestURI", "comment/listCommentsPanel.do");
         }catch (Throwable oops){
             result = new ModelAndView("redirect:/");
         }
@@ -150,6 +171,26 @@ public class CommentController extends AbstractController {
         return result;
     }
 
+    @RequestMapping(value = "/createPanel", method = RequestMethod.GET)
+    public ModelAndView createPanel(@RequestParam int panelId){
+        ModelAndView result;
+        Activity panel;
+        Comment comment;
+        try{
+            panel = this.activityService.findOne(panelId);
+            Assert.notNull(panel);
+            comment = this.commentService.create();
+            result = new ModelAndView("comment/createPanel");
+            result.addObject("comment", comment);
+            result.addObject("panel", panel);
+            result.addObject("panelId", panelId);
+        } catch (Throwable oops){
+            result = new ModelAndView("redirect:panel/show.do?panelId="+panelId);
+
+        }
+        return result;
+    }
+
     @RequestMapping(value="/createConference", method = RequestMethod.POST, params = "saveConference")
     public ModelAndView saveConference(@ModelAttribute("comment") Comment comment, @RequestParam int conferenceId, BindingResult binding){
         ModelAndView result;
@@ -208,6 +249,27 @@ public class CommentController extends AbstractController {
             result = new ModelAndView("comment/createPresentation");
             result.addObject("comment", comment);
             result.addObject("presentationId", presentationId);
+            result.addObject("message", "comment.commit.error");
+        }
+        return result;
+    }
+
+    @RequestMapping(value="/createPanel", method = RequestMethod.POST, params = "savePanel")
+    public ModelAndView savePanel(@ModelAttribute("comment") Comment comment, @RequestParam int panelId, BindingResult binding){
+        ModelAndView result;
+
+        try{
+            comment = this.commentService.reconstruct(comment, binding);
+            this.commentService.savePanel(comment, panelId);
+            result = new ModelAndView("redirect:/comment/listCommentsPanel.do?panelId=" + panelId);
+        }catch (ValidationException v){
+            result = new ModelAndView("comment/createPanel");
+            result.addObject("comment", comment);
+            result.addObject("panelId", panelId);
+        }catch (Throwable oops){
+            result = new ModelAndView("comment/createPanel");
+            result.addObject("comment", comment);
+            result.addObject("panelId", panelId);
             result.addObject("message", "comment.commit.error");
         }
         return result;

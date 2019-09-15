@@ -36,7 +36,7 @@
         <br>
         <fieldset>
 
-            <legend><spring:message code="presentation.data" /></legend>
+            <legend><spring:message code="panel.data" /></legend>
 
             <acme:textboxbsa code="presentation.title" path="title"/>
 

@@ -87,8 +87,6 @@ public class PanelController extends AbstractController {
         Conference conference = this.conferenceService.findOne(conferenceId);
         Date now = new Date();
 
-        Assert.isTrue(now.after(conference.getCameraReadyDeadline()) && now.before(conference.getStartDate()));
-
         panel = this.activityService.create();
         panel.setConference(conference);
         result = this.createEditModelAndView(panel);
@@ -100,12 +98,9 @@ public class PanelController extends AbstractController {
     public ModelAndView edit(@RequestParam final int panelId) {
         ModelAndView result;
         Activity panel;
-        Date now = new Date();
 
         try {
             panel = this.activityService.findOne(panelId);
-            Assert.isTrue(now.after(panel.getConference().getCameraReadyDeadline()) &&
-                    now.before(panel.getConference().getStartDate()));
             result = this.createEditModelAndView(panel);
             return result;
         } catch (final Exception e) {

@@ -30,7 +30,7 @@
 </head>
 <body>
 <fieldset>
-    <legend><b><spring:message code="presentation.data"/></b></legend>
+    <legend><b><spring:message code="panel.data"/></b></legend>
 
     <p><acme:showtext code="presentation.title" value="${panel.title}" fieldset="false"/></p>
     <p><acme:showtext code="presentation.startMoment" value="${panel.startMoment}" fieldset="false"/></p>
@@ -47,6 +47,10 @@
 <fieldset>
     <p><acme:showtext code="presentation.speakerName" value="${panel.speakerName}" fieldset="false"/></p>
 </fieldset>
+<p><a
+        href="comment/listCommentsPanel.do?panelId=${panel.id}">
+    <spring:message code="conference.comments"/>
+</a></p>
 <br>
 <acme:cancel code="button.cancel" url="/"/>
 </body>
