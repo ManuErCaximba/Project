@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2019 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	<definition name="conference/listForthcoming" extends="master.page">
+		<put-attribute name="title" value="Próximas conferencias" />
+		<put-attribute name="body" value="/views/conference/listForthcoming.jsp" />
+	</definition>
+
+	<definition name="conference/listPast" extends="master.page">
+		<put-attribute name="title" value="Conferencias pasadas" />
+		<put-attribute name="body" value="/views/conference/listPast.jsp" />
+	</definition>
+
+	<definition name="conference/listRunning" extends="master.page">
+		<put-attribute name="title" value="Conferencias en este momento" />
+		<put-attribute name="body" value="/views/conference/listRunning.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listDeadline5Days" extends="master.page">
+		<put-attribute name="title" value="Conferencias cuya fecha límite de presentación transcurrió en últimos 5 días" />
+		<put-attribute name="body" value="/views/conference/listDeadline5Days.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listNotification4Days" extends="master.page">
+		<put-attribute name="title" value="Conferencias cuya fecha límite de notificación expira en menos de cinco días" />
+		<put-attribute name="body" value="/views/conference/listNotification4Days.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listCamera4Days" extends="master.page">
+		<put-attribute name="title" value="Conferencias cuya fecha límite para la cámara transcurre en menos de cinco días" />
+		<put-attribute name="body" value="/views/conference/listCamera4Days.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listStartNext4Days" extends="master.page">
+		<put-attribute name="title" value="Conferencias que se organizarán en menos de cinco días" />
+		<put-attribute name="body" value="/views/conference/listStartNext4Days.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listAll" extends="master.page">
+		<put-attribute name="title" value="Todas las conferencias" />
+		<put-attribute name="body" value="/views/conference/listAll.jsp" />
+	</definition>
+
+	<definition name="conference/showNotLogged" extends="master.page">
+		<put-attribute name="title" value="Conferencia" />
+		<put-attribute name="body" value="/views/conference/showNotLogged.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/show" extends="master.page">
+		<put-attribute name="title" value="Conferencia" />
+		<put-attribute name="body" value="/views/conference/show.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/listConferenceAdminMenu" extends="master.page">
+		<put-attribute name="title" value="Listas de conferencias" />
+		<put-attribute name="body" value="/views/conference/listConferenceAdminMenu.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/create" extends="master.page">
+		<put-attribute name="title" value="Editar" />
+		<put-attribute name="body" value="/views/conference/edit.jsp" />
+	</definition>
+
+	<definition name="conference/administrator/edit" extends="master.page">
+		<put-attribute name="title" value="Editar" />
+		<put-attribute name="body" value="/views/conference/edit.jsp" />
+	</definition>
+
+</tiles-definitions>

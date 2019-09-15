@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2019 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="submission/author/create" extends="master.page">
+		<put-attribute name="title" value="Create new submission" />
+		<put-attribute name="body" value="/views/submission/create.jsp" />
+	</definition>
+
+	<definition name="submission/author/edit" extends="master.page">
+		<put-attribute name="title" value="Edit submission" />
+		<put-attribute name="body" value="/views/submission/edit.jsp" />
+	</definition>
+
+	<definition name="submission/author/list" extends="master.page">
+		<put-attribute name="title" value="Submissions's list" />
+		<put-attribute name="body" value="/views/submission/list.jsp" />
+	</definition>
+
+	<definition name="submission/administrator/list" extends="master.page">
+		<put-attribute name="title" value="Submissions's list" />
+		<put-attribute name="body" value="/views/submission/list.jsp" />
+	</definition>
+
+	<definition name="submission/administrator/assign" extends="master.page">
+		<put-attribute name="title" value="Reviewers's list" />
+		<put-attribute name="body" value="/views/submission/assign.jsp" />
+	</definition>
+
+	<definition name="submission/author/cameraReady" extends="master.page">
+		<put-attribute name="title" value="Set camera ready version" />
+		<put-attribute name="body" value="/views/submission/cameraReady.jsp" />
+	</definition>
+
+	<definition name="submission/show" extends="master.page">
+		<put-attribute name="title" value="Submission" />
+		<put-attribute name="body" value="/views/submission/show.jsp" />
+	</definition>
+
+</tiles-definitions>

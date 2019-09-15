@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2019 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="comment/list" extends="master.page">
+		<put-attribute name="title" value="List of comments" />
+		<put-attribute name="body" value="/views/comment/listConference.jsp" />
+	</definition>
+
+	<definition name="comment/listCommentsTutorial" extends="master.page">
+		<put-attribute name="title" value="List of comments" />
+		<put-attribute name="body" value="/views/comment/listTutorial.jsp" />
+	</definition>
+
+	<definition name="comment/listCommentsPresentation" extends="master.page">
+		<put-attribute name="title" value="List of comments" />
+		<put-attribute name="body" value="/views/comment/listPresentation.jsp" />
+	</definition>
+
+	<definition name="comment/createConference" extends="master.page">
+		<put-attribute name="title" value="New comment" />
+		<put-attribute name="body" value="/views/comment/createConference.jsp" />
+	</definition>
+
+	<definition name="comment/createTutorial" extends="master.page">
+		<put-attribute name="title" value="New comment" />
+		<put-attribute name="body" value="/views/comment/createTutorial.jsp" />
+	</definition>
+
+	<definition name="comment/createPresentation" extends="master.page">
+		<put-attribute name="title" value="New comment" />
+		<put-attribute name="body" value="/views/comment/createPresentation.jsp" />
+	</definition>
+
+</tiles-definitions>

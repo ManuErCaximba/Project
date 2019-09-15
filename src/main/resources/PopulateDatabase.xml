@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2019 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+    </bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="reviewer1" />
+		<property name="password" value="6ce19528a40dde9521d97cf7ba264eca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="reviewer2" />
+		<property name="password" value="2693b57f0f59df94caacefb811e99851" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="author1" />
+		<property name="password" value="b312ba4ffd5245fa2a1ab819ec0d0347" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="author2" />
+		<property name="password" value="9bd97baef2b853ec00cc3cffd269f679" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="sponsor1" />
+		<property name="password" value="42c63ad66d4dc07ed17753772bef96d6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="sponsor2" />
+		<property name="password" value="3dc67f80a03324e01b1640f45d107485" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Other domain beans come here -->
+
+	<!-- ADMIN -->
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount1"/>
+		<property name="name" value="admin1" />
+		<property name="surname" value="admin1" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="admin1@gmail.com" />
+		<property name="phoneNumber" value="666778899" />
+		<property name="address" value="C/admin1/Nº5" />
+
+	</bean>
+
+	<!-- REVIEWER -->
+
+	<bean id="reviewer1" class="domain.Reviewer">
+		<property name="userAccount" ref="userAccount2"/>
+		<property name="name" value="reviewer1" />
+		<property name="surname" value="reviewer1" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="reviewer1@gmail.com" />
+		<property name="phoneNumber" value="666889900" />
+		<property name="address" value="C/reviewer1/Nº5" />
+		<property name="keywords">
+			<list>
+				<value>reviewer1</value>
+				<value>good</value>
+				<value>sexy</value>
+				<value>science</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="reviewer2" class="domain.Reviewer">
+		<property name="userAccount" ref="userAccount3"/>
+		<property name="name" value="reviewer2" />
+		<property name="surname" value="reviewer2" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="reviewer2@gmail.com" />
+		<property name="phoneNumber" value="666889900" />
+		<property name="address" value="C/reviewer2/Nº5" />
+		<property name="keywords">
+			<list>
+				<value>reviewer2</value>
+				<value>good</value>
+				<value>sexy</value>
+				<value>science</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- AUTHOR -->
+	<bean id="author1" class="domain.Author">
+		<property name="userAccount" ref="userAccount4"/>
+		<property name="name" value="author1" />
+		<property name="surname" value="author1" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="author1@gmail.com" />
+		<property name="phoneNumber" value="684144451" />
+		<property name="address" value="C/author 1" />
+
+	</bean>
+
+	<bean id="author2" class="domain.Author">
+		<property name="userAccount" ref="userAccount5"/>
+		<property name="name" value="author2" />
+		<property name="surname" value="author2" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="author2@gmail.com" />
+		<property name="phoneNumber" value="684144452" />
+		<property name="address" value="C/author 2" />
+
+	</bean>
+
+	<!-- SPONSOR -->
+	<bean id="sponsor1" class="domain.Sponsor">
+		<property name="userAccount" ref="userAccount6"/>
+		<property name="name" value="sponsor1" />
+		<property name="surname" value="sponsor1" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="sponsor1@gmail.com" />
+		<property name="phoneNumber" value="684144461" />
+		<property name="address" value="C/sponsor 1" />
+	</bean>
+	
+	<bean id="sponsor2" class="domain.Sponsor">
+		<property name="userAccount" ref="userAccount7"/>
+		<property name="name" value="sponsor2" />
+		<property name="surname" value="sponsor2" />
+		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
+		<property name="email" value="sponsor2@gmail.com" />
+		<property name="phoneNumber" value="684144465" />
+		<property name="address" value="C/sponsor 2" />
+	</bean>
+
+	<!-- FINDER -->
+
+	<bean id="finder1" class="domain.Finder">
+		<property name="actor" ref="administrator1" />
+	</bean>
+
+	<bean id="finder2" class="domain.Finder">
+		<property name="actor" ref="reviewer1" />
+	</bean>
+
+	<bean id="finder3" class="domain.Finder">
+		<property name="actor" ref="reviewer2" />
+	</bean>
+
+	<bean id="finder4" class="domain.Finder">
+		<property name="actor" ref="sponsor1" />
+	</bean>
+
+	<bean id="finder5" class="domain.Finder">
+		<property name="actor" ref="sponsor2" />
+	</bean>
+
+	<bean id="finder6" class="domain.Finder">
+		<property name="actor" ref="author1" />
+	</bean>
+
+	<bean id="finder7" class="domain.Finder">
+		<property name="actor" ref="author2" />
+	</bean>
+
+	<!-- SPONSORSHIP -->
+
+	<bean id="sponsorship1" class="domain.Sponsorship">
+		<property name="banner" value="https://www.reasonwhy.es/sites/default/files/anuncio-coca-cola-navidad.png" />
+		<property name="targetURL" value="https://www.reasonwhy.es/actualidad/anuncio-navidad-coca-cola-2018" />
+		<property name="creditCard" ref="creditCard1"/>
+		<property name="sponsor" ref="sponsor1"/>
+	</bean>
+
+	<bean id="sponsorship2" class="domain.Sponsorship">
+		<property name="banner" value="https://www.reasonwhy.es/sites/default/files/anuncio-coca-cola-navidad.png" />
+		<property name="targetURL" value="https://www.reasonwhy.es/actualidad/anuncio-navidad-coca-cola-2018" />
+		<property name="creditCard" ref="creditCard1"/>
+		<property name="sponsor" ref="sponsor1"/>
+	</bean>
+
+
+	<!-- CREDIT CARD -->
+
+	<bean id="creditCard1" class="datatype.CreditCard">
+		<property name="holderName" value="José Gil Ruiz"/>
+		<property name="brandName" value="VISA" />
+		<property name="number" value="4762107783208898" />
+		<property name="expirationMonth" value="6" />
+		<property name="expirationYear" value="2026" />
+		<property name="CVV" value="862" />
+	</bean>
+
+	<!-- RECIPIENT -->
+
+	<bean id="report1" class="domain.Report">
+		<property name="originalityScore" value="5"/>
+		<property name="readabilityScore" value="5" />
+		<property name="qualityScore" value="5" />
+		<property name="decision" value="ACCEPT" />
+		<property name="reviewer" ref="reviewer1" />
+		<property name="submission" ref="submission2" />
+	</bean>
+
+	<bean id="report2" class="domain.Report">
+		<property name="originalityScore" value="5"/>
+		<property name="readabilityScore" value="5" />
+		<property name="qualityScore" value="5" />
+		<property name="decision" value="ACCEPT" />
+		<property name="reviewer" ref="reviewer2" />
+		<property name="submission" ref="submission2" />
+	</bean>
+
+	<!-- SUBMISSION -->
+
+	<bean id="submission1" class="domain.Submission">
+		<property name="ticker" value="ABC-1234"/>
+		<property name="moment" value="12/15/2017 12:00" />
+		<property name="status" value="UNDER-REVIEW" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference1"/>
+		<property name="isAssigned" value="false"/>
+		<property name="isCameraReady" value="false"/>
+	</bean>
+
+	<bean id="submission2" class="domain.Submission">
+		<property name="ticker" value="ABC-2345"/>
+		<property name="moment" value="01/01/2017 12:00" />
+		<property name="status" value="UNDER-REVIEW" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference2"/>
+		<property name="isAssigned" value="true"/>
+		<property name="isCameraReady" value="false"/>
+	</bean>
+
+	<bean id="submission3" class="domain.Submission">
+		<property name="ticker" value="ABC-3456"/>
+		<property name="moment" value="01/01/2017 12:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference3"/>
+		<property name="isAssigned" value="true"/>
+		<property name="isCameraReady" value="false"/>
+	</bean>
+
+	<bean id="submission4" class="domain.Submission">
+		<property name="ticker" value="ABC-4567"/>
+		<property name="moment" value="01/01/2017 12:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference4"/>
+		<property name="isAssigned" value="true"/>
+		<property name="isCameraReady" value="true"/>
+	</bean>
+
+	<bean id="submission5" class="domain.Submission">
+		<property name="ticker" value="ABC-5678"/>
+		<property name="moment" value="01/01/2017 12:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference5"/>
+		<property name="isAssigned" value="true"/>
+		<property name="isCameraReady" value="true"/>
+	</bean>
+
+	<bean id="submission6" class="domain.Submission">
+		<property name="ticker" value="ABC-6789"/>
+		<property name="moment" value="01/01/2017 12:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="author" ref="author1" />
+		<property name="paper" ref="paper1" />
+		<property name="conference" ref="conference6"/>
+		<property name="isAssigned" value="true"/>
+		<property name="isCameraReady" value="true"/>
+	</bean>
+
+	<!-- CONFERENCE -->
+
+	<bean id="conference1" class="domain.Conference">
+		<property name="title" value="conferenceBeforeSubmissionDL"/>
+		<property name="acronym" value="CF1"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2021 12:00"/>
+		<property name="notificationDeadline" value="01/01/2022 10:00" />
+		<property name="cameraReadyDeadline" value="01/01/2022 17:00" />
+		<property name="startDate" value="01/01/2022 19:00" />
+		<property name="endDate" value="01/02/2022 19:00" />
+		<property name="summary" value="Data conferencia" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+				<ref bean="Comment1"/>
+				<ref bean="Comment2"/>
+			</list>
+		</property>
+		<property name="registrations">
+			<list>
+				<ref bean="Registration1"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="conference2" class="domain.Conference">
+		<property name="title" value="conferenceBetweenSubmissionDLAndNotificationDL"/>
+		<property name="acronym" value="CF2"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2018 12:00"/>
+		<property name="notificationDeadline" value="01/01/2021 10:00" />
+		<property name="cameraReadyDeadline" value="01/01/2021 17:00" />
+		<property name="startDate" value="01/01/2021 19:00" />
+		<property name="endDate" value="01/02/2021 19:00" />
+		<property name="summary" value="Data cosa" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="conference3" class="domain.Conference">
+		<property name="title" value="conferenceBetweenNotificationDLAndCameraReadyDL"/>
+		<property name="acronym" value="CF2"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2018 12:00"/>
+		<property name="notificationDeadline" value="02/02/2018 10:00" />
+		<property name="cameraReadyDeadline" value="01/01/2021 17:00" />
+		<property name="startDate" value="01/01/2021 19:00" />
+		<property name="endDate" value="01/02/2021 19:00" />
+		<property name="summary" value="Data hola" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="conference4" class="domain.Conference">
+		<property name="title" value="conferenceBetweenCameraReadyDLAndStartDate"/>
+		<property name="acronym" value="CF2"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2018 12:00"/>
+		<property name="notificationDeadline" value="02/02/2018 10:00" />
+		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
+		<property name="startDate" value="01/01/2021 19:00" />
+		<property name="endDate" value="01/02/2021 19:00" />
+		<property name="summary" value="Data data" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="conference5" class="domain.Conference">
+		<property name="title" value="conferenceBetweenStartDateAndEndDate"/>
+		<property name="acronym" value="CF2"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2018 12:00"/>
+		<property name="notificationDeadline" value="02/02/2018 10:00" />
+		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
+		<property name="startDate" value="04/04/2018 19:00" />
+		<property name="endDate" value="01/01/2021 20:00" />
+		<property name="summary" value="Todo el data" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="conference6" class="domain.Conference">
+		<property name="title" value="conferenceAfterEndDate"/>
+		<property name="acronym" value="CF2"/>
+		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
+		<property name="moment" value="01/01/2019 12:00"/>
+		<property name="submissionDeadline" value="01/01/2018 12:00"/>
+		<property name="notificationDeadline" value="02/02/2018 10:00" />
+		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
+		<property name="startDate" value="04/04/2018 19:00" />
+		<property name="endDate" value="05/05/2018 20:00" />
+		<property name="summary" value="Mas data" />
+		<property name="fee" value="2" />
+		<property name="isFinal" value="true" />
+		<property name="category" ref="Tools"/>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- REGISTRATION -->
+	<bean id="Registration1" class="domain.Registration">
+		<property name="author" ref="author1"/>
+		<property name="moment" value="01/01/2022 15:00"/>
+		<property name="creditCard" ref="creditCard1"/>
+	</bean>
+
+	<!-- CATEGORY -->
+
+	<bean id="category" class = "domain.Category">
+		<property name="nameEn" value="CONFERENCE"/>
+		<property name="nameEs" value="CONFERENCIA"/>
+		<property name="parents"><null/></property>
+		<property name="childs">
+			<list>
+				<ref bean = "ComputerScience"/>
+				<ref bean = "SoftwareEngineering"/>
+				<ref bean = "Physics"/>
+				<ref bean = "Biology"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ComputerScience" class = "domain.Category">
+		<property name="nameEn" value="Computer science"/>
+		<property name="nameEs" value="Ciencias de la computación"/>
+		<property name="parents" ref="category"/>
+		<property name="childs">
+			<list>
+				<ref bean = "ArtificialIntelligence"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="SoftwareEngineering" class = "domain.Category">
+		<property name="nameEn" value="Sofware engineering"/>
+		<property name="nameEs" value="Ingeniería de sofware"/>
+		<property name="parents" ref="category"/>
+		<property name="childs">
+			<list>
+				<ref bean = "BigData"/>
+				<ref bean = "BigProcessing"/>
+				<ref bean = "Methods"/>
+				<ref bean = "Tools"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Physics" class = "domain.Category">
+		<property name="nameEn" value="Physics"/>
+		<property name="nameEs" value="Física"/>
+		<property name="parents" ref="category"/>
+		<property name="childs">
+			<list>
+				<ref bean = "Cinematic"/>
+				<ref bean = "Electricity"/>
+				<ref bean = "Electronics"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Biology" class = "domain.Category">
+		<property name="nameEn" value="Biology"/>
+		<property name="nameEs" value="Biología"/>
+		<property name="parents" ref="category"/>
+		<property name="childs">
+			<list>
+				<ref bean = "Animals"/>
+				<ref bean = "Plants"/>
+				<ref bean = "Fungi"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ArtificialIntelligence" class = "domain.Category">
+		<property name="nameEn" value="Artificial intelligence"/>
+		<property name="nameEs" value="Inteligencia Artificial"/>
+		<property name="parents" ref="ComputerScience"/>
+		<property name="childs">
+			<list>
+				<ref bean = "DeepLearning"/>
+				<ref bean = "InstanceBasedLearning"/>
+				<ref bean = "Regression"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="DeepLearning" class = "domain.Category">
+		<property name="nameEn" value="Deep learning"/>
+		<property name="nameEs" value="Aprendizaje profundo"/>
+		<property name="parents" ref="ArtificialIntelligence"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="InstanceBasedLearning" class = "domain.Category">
+		<property name="nameEn" value="Instance-based learning"/>
+		<property name="nameEs" value="Aprendizaje basado en instancias"/>
+		<property name="parents" ref="ArtificialIntelligence"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Regression" class = "domain.Category">
+		<property name="nameEn" value="Regression"/>
+		<property name="nameEs" value="Regresión"/>
+		<property name="parents" ref="ArtificialIntelligence"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="BigData" class = "domain.Category">
+		<property name="nameEn" value="Big data"/>
+		<property name="nameEs" value="Big data"/>
+		<property name="parents" ref="SoftwareEngineering"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="BigProcessing" class = "domain.Category">
+		<property name="nameEn" value="Big processing"/>
+		<property name="nameEs" value="Gran procesamiento"/>
+		<property name="parents" ref="SoftwareEngineering"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Methods" class = "domain.Category">
+		<property name="nameEn" value="Methods"/>
+		<property name="nameEs" value="Métodos"/>
+		<property name="parents" ref="SoftwareEngineering"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Tools" class = "domain.Category">
+		<property name="nameEn" value="Tools"/>
+		<property name="nameEs" value="Herramientas"/>
+		<property name="parents" ref="SoftwareEngineering"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Cinematic" class = "domain.Category">
+		<property name="nameEn" value="Cinematic"/>
+		<property name="nameEs" value="Cinemática"/>
+		<property name="parents" ref="Physics"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Electricity" class = "domain.Category">
+		<property name="nameEn" value="Electricity"/>
+		<property name="nameEs" value="Electricidad"/>
+		<property name="parents" ref="Physics"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Electronics" class = "domain.Category">
+		<property name="nameEn" value="Electronics"/>
+		<property name="nameEs" value="Electrónica"/>
+		<property name="parents" ref="Physics"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Animals" class = "domain.Category">
+		<property name="nameEn" value="Animals"/>
+		<property name="nameEs" value="Animales"/>
+		<property name="parents" ref="Biology"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Plants" class = "domain.Category">
+		<property name="nameEn" value="Plants"/>
+		<property name="nameEs" value="Plantas"/>
+		<property name="parents" ref="Biology"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="Fungi" class = "domain.Category">
+		<property name="nameEn" value="Fungi"/>
+		<property name="nameEs" value="Hongos"/>
+		<property name="parents" ref="Biology"/>
+		<property name="childs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<!-- TUTORIAL -->
+	<bean id ="Tutorial1" class="domain.Tutorial">
+		<property name="title" value="tutorial1"/>
+		<property name="startMoment" value="01/01/2022 19:00"/>
+		<property name="duration" value="2"/>
+		<property name="room" value="room 1"/>
+		<property name="summary" value="summary"/>
+		<property name="attachments">
+			<list>
+
+			</list>
+		</property>
+		<property name="speakerName" value="José Luis"/>
+		<property name="comments">
+			<list>
+
+			</list>
+		</property>
+		<property name="conference" ref="conference1"/>
+	</bean>
+
+	<!-- SECTION -->
+	<bean id="Section1" class="domain.Section">
+		<property name="title" value="section1"/>
+		<property name="summary" value="summary"/>
+		<property name="pictures">
+			<list>
+
+			</list>
+		</property>
+		<property name="tutorial" ref="Tutorial1"/>
+	</bean>
+
+
+
+	<!-- TOPIC -->
+	<bean id="INQUIRY" class="domain.Topic">
+		<property name="nameEn" value="INQUIRY"/>
+		<property name="nameEs" value="INVESTIGACIÓN"/>
+	</bean>
+
+
+	<bean id="REBUTTAL" class="domain.Topic">
+		<property name="nameEn" value="REBUTTAL"/>
+		<property name="nameEs" value="REFUTACIÓN"/>
+	</bean>
+
+
+	<bean id="REGISTRATION" class="domain.Topic">
+		<property name="nameEn" value="REGISTRATION"/>
+		<property name="nameEs" value="REGISTRO"/>
+	</bean>
+
+
+	<bean id="TOPICS" class="domain.Topic">
+		<property name="nameEn" value="TOPICS"/>
+		<property name="nameEs" value="TEMAS"/>
+	</bean>
+
+
+	<bean id="OTHER" class="domain.Topic">
+		<property name="nameEn" value="OTHER"/>
+		<property name="nameEs" value="OTRO"/>
+	</bean>
+
+	<!-- MESSAGE -->
+	<bean id="Message1" class="domain.Message">
+		<property name="moment" value="01/01/2018 19:00"/>
+		<property name="subject" value="Prueba"/>
+		<property name="body" value="Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+		<property name="sender" ref="author1"/>
+		<property name="recipient" ref="administrator1"/>
+		<property name="topic" ref="OTHER"/>
+		<property name="deletedByRecipient" value="false"/>
+		<property name="deletedBySender" value="false"/>
+	</bean>
+
+	<bean id="Message2" class="domain.Message">
+		<property name="moment" value="01/01/2018 17:00"/>
+		<property name="subject" value="Prueba2"/>
+		<property name="body" value="Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaa 2"/>
+		<property name="sender" ref="administrator1"/>
+		<property name="recipient" ref="reviewer1"/>
+		<property name="topic" ref="INQUIRY"/>
+		<property name="deletedByRecipient" value="false"/>
+		<property name="deletedBySender" value="false"/>
+	</bean>
+
+	<!-- COMMENT -->
+	<bean id="Comment1" class="domain.Comment">
+		<property name="moment" value="10/10/2022"/>
+		<property name="title" value="title"/>
+		<property name="text" value="Texttttttt"/>
+		<property name="actor" ref="administrator1"/>
+	</bean>
+
+	<bean id="Comment2" class="domain.Comment">
+		<property name="moment" value="10/10/2022"/>
+		<property name="title" value="title"/>
+		<property name="text" value="Comment anonymous"/>
+	</bean>
+
+	<!-- PAPER -->
+
+	<bean id="paper1" class="domain.Paper">
+		<property name="title" value="paper1"/>
+		<property name="summary" value="Esto es el paper1" />
+		<property name="documentURL" value="https://si.ua.es/es/documentos/documentacion/pdf-s/mozilla12-pdf.pdf" />
+		<property name="isInSubmission" value="false"/>
+		<property name="authors">
+			<list>
+				<ref bean="author1"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="paper2" class="domain.Paper">
+		<property name="title" value="paper2"/>
+		<property name="summary" value="Esto es el paper2" />
+		<property name="documentURL" value="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" />
+		<property name="isInSubmission" value="false"/>
+		<property name="authors">
+			<list>
+				<ref bean="author1"/>
+			</list>
+		</property>
+	</bean>
+
+	<!-- CONFIGURATION -->
+
+	<bean id="configuration1" class="domain.Configuration">
+		<property name="systemName" value="Acme Conference"/>
+		<property name="banner" value="https://i.ibb.co/GVpZCtM/acme-conference.png" />
+		<property name="welcomeEn" value="Welcome to Acme Conference! Your scientific event manager" />
+		<property name="welcomeEs" value="¡Bienvenidos a Acme Conference! Su gestor de eventos científicos" />
+		<property name="defaultCC" value="34" />
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+				<value>MASTER</value>
+				<value>DINNERS</value>
+				<value>AMEX</value>
+			</list>
+		</property>
+		<property name="topics">
+			<list>
+				<ref bean="INQUIRY"/>
+				<ref bean="REBUTTAL"/>
+				<ref bean="REGISTRATION"/>
+				<ref bean="TOPICS"/>
+				<ref bean="OTHER"/>
+			</list>
+		</property>
+		<property name="voidWordsEn">
+			<list>
+				<value>a</value>
+				<value>able</value>
+				<value>about</value>
+				<value>across</value>
+				<value>after</value>
+				<value>all</value>
+				<value>almost</value>
+				<value>also</value>
+				<value>am</value>
+				<value>among</value>
+				<value>an</value>
+				<value>and</value>
+				<value>any</value>
+				<value>are</value>
+				<value>as</value>
+				<value>at</value>
+				<value>be</value>
+				<value>because</value>
+				<value>been</value>
+				<value>but</value>
+				<value>by</value>
+				<value>can</value>
+				<value>cannot</value>
+				<value>could</value>
+				<value>dear</value>
+				<value>did</value>
+				<value>do</value>
+				<value>does</value>
+				<value>either</value>
+				<value>else</value>
+				<value>ever</value>
+				<value>every</value>
+				<value>for</value>
+				<value>from</value>
+				<value>get</value>
+				<value>got</value>
+				<value>had</value>
+				<value>has</value>
+				<value>have</value>
+				<value>he</value>
+				<value>her</value>
+				<value>hers</value>
+				<value>him</value>
+				<value>his</value>
+				<value>how</value>
+				<value>however</value>
+				<value>i</value>
+				<value>if</value>
+				<value>in</value>
+				<value>into</value>
+				<value>is</value>
+				<value>it</value>
+				<value>its</value>
+				<value>just</value>
+				<value>least</value>
+				<value>let</value>
+				<value>like</value>
+				<value>likely</value>
+				<value>may</value>
+				<value>me</value>
+				<value>might</value>
+				<value>most</value>
+				<value>must</value>
+				<value>my</value>
+				<value>neither</value>
+				<value>no</value>
+				<value>nor</value>
+				<value>not</value>
+				<value>of</value>
+				<value>off</value>
+				<value>often</value>
+				<value>on</value>
+				<value>only</value>
+				<value>or</value>
+				<value>other</value>
+				<value>our</value>
+				<value>own</value>
+				<value>rather</value>
+				<value>said</value>
+				<value>say</value>
+				<value>says</value>
+				<value>she</value>
+				<value>should</value>
+				<value>since</value>
+				<value>so</value>
+				<value>some</value>
+				<value>than</value>
+				<value>that</value>
+				<value>the</value>
+				<value>their</value>
+				<value>them</value>
+				<value>then</value>
+				<value>there</value>
+				<value>these</value>
+				<value>they</value>
+				<value>this</value>
+				<value>tis</value>
+				<value>to</value>
+				<value>too</value>
+				<value>twas</value>
+				<value>us</value>
+				<value>wants</value>
+				<value>was</value>
+				<value>we</value>
+				<value>were</value>
+				<value>what</value>
+				<value>when</value>
+				<value>where</value>
+				<value>which</value>
+				<value>while</value>
+				<value>who</value>
+				<value>whom</value>
+				<value>why</value>
+				<value>will</value>
+				<value>with</value>
+				<value>would</value>
+				<value>yet</value>
+				<value>you</value>
+				<value>your</value>
+			</list>
+		</property>
+		<property name="voidWordsEs">
+			<list>
+				<value>a</value>
+				<value>acá</value>
+				<value>ahí</value>
+				<value>ajena</value>
+				<value>ajeno</value>
+				<value>ajenos</value>
+				<value>al</value>
+				<value>algo</value>
+				<value>algún</value>
+				<value>alguna</value>
+				<value>alguno</value>
+				<value>algunos</value>
+				<value>allá</value>
+				<value>alli</value>
+				<value>ambos</value>
+				<value>ante</value>
+				<value>antes</value>
+				<value>aquel</value>
+				<value>aquella</value>
+				<value>aquello</value>
+				<value>aquellos</value>
+				<value>aquí</value>
+				<value>arriba</value>
+				<value>así</value>
+				<value>atrás</value>
+				<value>aun</value>
+				<value>aunque</value>
+				<value>bajo</value>
+				<value>bastante</value>
+				<value>bien</value>
+				<value>cabe</value>
+				<value>cada</value>
+				<value>casi</value>
+				<value>cierto</value>
+				<value>cierta</value>
+				<value>ciertos</value>
+				<value>como</value>
+				<value>con</value>
+				<value>conmigo</value>
+				<value>conseguimos</value>
+				<value>conseguir</value>
+				<value>consigo</value>
+				<value>consigue</value>
+				<value>consiguen</value>
+				<value>consigues</value>
+				<value>contigo</value>
+				<value>contra</value>
+				<value>cual</value>
+				<value>cuales</value>
+				<value>cualquier</value>
+				<value>cualquiera</value>
+				<value>cualquieras</value>
+				<value>cuan</value>
+				<value>cuando</value>
+				<value>cuanto</value>
+				<value>cuanta</value>
+				<value>cuantos</value>
+				<value>cuantas</value>
+				<value>de</value>
+				<value>dejar</value>
+				<value>del</value>
+				<value>demás</value>
+				<value>demasiada</value>
+				<value>demasiado</value>
+				<value>demasiados</value>
+				<value>demaisadas</value>
+				<value>dentro</value>
+				<value>desde</value>
+				<value>donde</value>
+				<value>dos</value>
+				<value>el</value>
+				<value>él</value>
+				<value>ella</value>
+				<value>ello</value>
+				<value>ellos</value>
+				<value>ellas</value>
+				<value>empleáis</value>
+				<value>emplean</value>
+				<value>emplear</value>
+				<value>empleas</value>
+				<value>empleo</value>
+				<value>en</value>
+				<value>encima</value>
+				<value>entonces</value>
+				<value>entre</value>
+				<value>era</value>
+				<value>eras</value>
+				<value>eramos</value>
+				<value>eran</value>
+				<value>eres</value>
+				<value>es</value>
+				<value>esa</value>
+				<value>ese</value>
+				<value>eso</value>
+				<value>esos</value>
+				<value>esas</value>
+				<value>esta</value>
+				<value>estas</value>
+				<value>estaba</value>
+				<value>estado</value>
+				<value>estáis</value>
+				<value>estamos</value>
+				<value>están</value>
+				<value>estar</value>
+				<value>este</value>
+				<value>esto</value>
+				<value>estos</value>
+				<value>estoy</value>
+				<value>etc</value>
+				<value>fin</value>
+				<value>fue</value>
+				<value>fueron</value>
+				<value>fui</value>
+				<value>fuimos</value>
+				<value>gueno</value>
+				<value>ha</value>
+				<value>hace</value>
+				<value>haces</value>
+				<value>hacéis</value>
+				<value>hacemos</value>
+				<value>hacen</value>
+				<value>hacer</value>
+				<value>hacia</value>
+				<value>hago</value>
+				<value>hasta</value>
+				<value>incluso</value>
+				<value>intenta</value>
+				<value>intentas</value>
+				<value>intentáis</value>
+				<value>intentamos</value>
+				<value>intentan</value>
+				<value>intentar</value>
+				<value>intento</value>
+				<value>ir</value>
+				<value>jamás</value>
+				<value>junto</value>
+				<value>juntos</value>
+				<value>la</value>
+				<value>lo</value>
+				<value>las</value>
+				<value>los</value>
+				<value>largo</value>
+				<value>más</value>
+				<value>me</value>
+				<value>menos</value>
+				<value>mi</value>
+				<value>mis</value>
+				<value>mía</value>
+				<value>mias</value>
+				<value>mientras</value>
+				<value>mío</value>
+				<value>mios</value>
+				<value>misma</value>
+				<value>mismo</value>
+				<value>mismos</value>
+				<value>mismas</value>
+				<value>modo</value>
+				<value>mucha</value>
+				<value>muchas</value>
+				<value>muchísima</value>
+				<value>muchisimos</value>
+				<value>muchisimo</value>
+				<value>mucho</value>
+				<value>muchos</value>
+				<value>muy</value>
+				<value>nada</value>
+				<value>ni</value>
+				<value>ningún</value>
+				<value>ninguna</value>
+				<value>ninguno</value>
+				<value>ningunos</value>
+				<value>ningunas</value>
+				<value>no</value>
+				<value>nos</value>
+				<value>nosotras</value>
+				<value>nosotros</value>
+				<value>nuestra</value>
+				<value>nuestro</value>
+				<value>nuestras</value>
+				<value>nuestros</value>
+				<value>nunca</value>
+				<value>os</value>
+				<value>otra</value>
+				<value>otro</value>
+				<value>otros</value>
+				<value>para</value>
+				<value>parecer</value>
+				<value>pero</value>
+				<value>poca</value>
+				<value>poco</value>
+				<value>pocos</value>
+				<value>podéis</value>
+				<value>podemos</value>
+				<value>poder</value>
+				<value>podría</value>
+				<value>podrias</value>
+				<value>podríais</value>
+				<value>podríamos</value>
+				<value>podrían</value>
+				<value>por</value>
+				<value>por qué</value>
+				<value>porque</value>
+				<value>primero</value>
+				<value>puede</value>
+				<value>pueden</value>
+				<value>puedo</value>
+				<value>pues</value>
+				<value>que</value>
+				<value>qué</value>
+				<value>querer</value>
+				<value>quién</value>
+				<value>quienes</value>
+				<value>quienesquiera</value>
+				<value>quienquiera</value>
+				<value>quizá</value>
+				<value>quizas</value>
+				<value>sabes</value>
+				<value>saben</value>
+				<value>sabéis</value>
+				<value>sabemos</value>
+				<value>saber</value>
+				<value>se</value>
+				<value>según</value>
+				<value>ser</value>
+				<value>si</value>
+				<value>sí</value>
+				<value>siempre</value>
+				<value>siendo</value>
+				<value>sin</value>
+				<value>sino</value>
+				<value>so</value>
+				<value>sobre</value>
+				<value>sois</value>
+				<value>solamente</value>
+				<value>solo</value>
+				<value>sólo</value>
+				<value>somos</value>
+				<value>soy</value>
+				<value>sr</value>
+				<value>sra</value>
+				<value>sres</value>
+				<value>sta</value>
+				<value>su</value>
+				<value>sus</value>
+				<value>suya</value>
+				<value>suyo</value>
+				<value>suyas</value>
+				<value>suyos</value>
+				<value>tal</value>
+				<value>tales</value>
+				<value>también</value>
+				<value>tampoco</value>
+				<value>tan</value>
+				<value>tanta</value>
+				<value>tanto</value>
+				<value>tantas</value>
+				<value>tantos</value>
+				<value>te</value>
+				<value>tenéis</value>
+				<value>tenemos</value>
+				<value>tener</value>
+				<value>tengo</value>
+				<value>ti</value>
+				<value>tiempo</value>
+				<value>tiene</value>
+				<value>tienen</value>
+				<value>toda</value>
+				<value>todo</value>
+				<value>todas</value>
+				<value>todos</value>
+				<value>tomar</value>
+				<value>trabaja</value>
+				<value>trabajo</value>
+				<value>trabajáis</value>
+				<value>trabajamos</value>
+				<value>trabajan</value>
+				<value>trabajar</value>
+				<value>trabajas</value>
+				<value>tras</value>
+				<value>tú</value>
+				<value>tu</value>
+				<value>tus</value>
+				<value>tuya</value>
+				<value>tuyo</value>
+				<value>tuyas</value>
+				<value>tuyo</value>
+				<value>último</value>
+				<value>ultimo</value>
+				<value>un</value>
+				<value>una</value>
+				<value>uno</value>
+				<value>unas</value>
+				<value>unos</value>
+				<value>usa</value>
+				<value>usas</value>
+				<value>usáis</value>
+				<value>usamos</value>
+				<value>usan</value>
+				<value>usar</value>
+				<value>uso</value>
+				<value>usted</value>
+				<value>ustedes</value>
+				<value>va</value>
+				<value>van</value>
+				<value>vais</value>
+				<value>valor</value>
+				<value>vamos</value>
+				<value>varias</value>
+				<value>varios</value>
+				<value>vaya</value>
+				<value>verdadera</value>
+				<value>vosotras</value>
+				<value>vosotros</value>
+				<value>voy</value>
+				<value>vuestra</value>
+				<value>vuestro</value>
+				<value>vuestras</value>
+				<value>vuestros</value>
+				<value>y</value>
+				<value>ya</value>
+				<value>yo</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>
