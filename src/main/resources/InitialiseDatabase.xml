@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
+<!--
  * PopulateDatabase.xml
  *
  * Copyright (C) 2019 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
+ *
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
  * http://www.tdg-seville.info/License.html
  -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
 
@@ -30,79 +30,6 @@
 		</property>
 	</bean>
 
-	<bean id="userAccount2" class="security.UserAccount">
-		<property name="username" value="reviewer1" />
-		<property name="password" value="6ce19528a40dde9521d97cf7ba264eca" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="REVIEWER" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="userAccount3" class="security.UserAccount">
-		<property name="username" value="reviewer2" />
-		<property name="password" value="2693b57f0f59df94caacefb811e99851" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="REVIEWER" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="userAccount4" class="security.UserAccount">
-		<property name="username" value="author1" />
-		<property name="password" value="b312ba4ffd5245fa2a1ab819ec0d0347" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="AUTHOR" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="userAccount5" class="security.UserAccount">
-		<property name="username" value="author2" />
-		<property name="password" value="9bd97baef2b853ec00cc3cffd269f679" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="AUTHOR" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="userAccount6" class="security.UserAccount">
-		<property name="username" value="sponsor1" />
-		<property name="password" value="42c63ad66d4dc07ed17753772bef96d6" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="SPONSOR" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="userAccount7" class="security.UserAccount">
-		<property name="username" value="sponsor2" />
-		<property name="password" value="3dc67f80a03324e01b1640f45d107485" />
-		<property name="authorities">
-			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="SPONSOR" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-
 	<!-- Other domain beans come here -->
 
 	<!-- ADMIN -->
@@ -112,93 +39,10 @@
 		<property name="name" value="admin1" />
 		<property name="surname" value="admin1" />
 		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="admin1@gmail.com" />
+		<property name="email" value="admin1@" />
 		<property name="phoneNumber" value="666778899" />
 		<property name="address" value="C/admin1/Nº5" />
 
-	</bean>
-
-	<!-- REVIEWER -->
-
-	<bean id="reviewer1" class="domain.Reviewer">
-		<property name="userAccount" ref="userAccount2"/>
-		<property name="name" value="reviewer1" />
-		<property name="surname" value="reviewer1" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="reviewer1@gmail.com" />
-		<property name="phoneNumber" value="666889900" />
-		<property name="address" value="C/reviewer1/Nº5" />
-		<property name="keywords">
-			<list>
-				<value>reviewer1</value>
-				<value>good</value>
-				<value>sexy</value>
-				<value>science</value>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="reviewer2" class="domain.Reviewer">
-		<property name="userAccount" ref="userAccount3"/>
-		<property name="name" value="reviewer2" />
-		<property name="surname" value="reviewer2" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="reviewer2@gmail.com" />
-		<property name="phoneNumber" value="666889900" />
-		<property name="address" value="C/reviewer2/Nº5" />
-		<property name="keywords">
-			<list>
-				<value>reviewer2</value>
-				<value>good</value>
-				<value>sexy</value>
-				<value>science</value>
-			</list>
-		</property>
-	</bean>
-
-
-	<!-- AUTHOR -->
-	<bean id="author1" class="domain.Author">
-		<property name="userAccount" ref="userAccount4"/>
-		<property name="name" value="author1" />
-		<property name="surname" value="author1" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="author1@gmail.com" />
-		<property name="phoneNumber" value="684144451" />
-		<property name="address" value="C/author 1" />
-
-	</bean>
-
-	<bean id="author2" class="domain.Author">
-		<property name="userAccount" ref="userAccount5"/>
-		<property name="name" value="author2" />
-		<property name="surname" value="author2" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="author2@gmail.com" />
-		<property name="phoneNumber" value="684144452" />
-		<property name="address" value="C/author 2" />
-
-	</bean>
-
-	<!-- SPONSOR -->
-	<bean id="sponsor1" class="domain.Sponsor">
-		<property name="userAccount" ref="userAccount6"/>
-		<property name="name" value="sponsor1" />
-		<property name="surname" value="sponsor1" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="sponsor1@gmail.com" />
-		<property name="phoneNumber" value="684144461" />
-		<property name="address" value="C/sponsor 1" />
-	</bean>
-
-	<bean id="sponsor2" class="domain.Sponsor">
-		<property name="userAccount" ref="userAccount7"/>
-		<property name="name" value="sponsor2" />
-		<property name="surname" value="sponsor2" />
-		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="sponsor2@gmail.com" />
-		<property name="phoneNumber" value="684144465" />
-		<property name="address" value="C/sponsor 2" />
 	</bean>
 
 	<!-- FINDER -->
@@ -207,282 +51,6 @@
 		<property name="actor" ref="administrator1" />
 	</bean>
 
-	<bean id="finder2" class="domain.Finder">
-		<property name="actor" ref="reviewer1" />
-	</bean>
-
-	<bean id="finder3" class="domain.Finder">
-		<property name="actor" ref="reviewer2" />
-	</bean>
-
-	<bean id="finder4" class="domain.Finder">
-		<property name="actor" ref="sponsor1" />
-	</bean>
-
-	<bean id="finder5" class="domain.Finder">
-		<property name="actor" ref="sponsor2" />
-	</bean>
-
-	<bean id="finder6" class="domain.Finder">
-		<property name="actor" ref="author1" />
-	</bean>
-
-	<bean id="finder7" class="domain.Finder">
-		<property name="actor" ref="author2" />
-	</bean>
-
-	<!-- SPONSORSHIP -->
-
-	<bean id="sponsorship1" class="domain.Sponsorship">
-		<property name="banner" value="https://www.reasonwhy.es/sites/default/files/anuncio-coca-cola-navidad.png" />
-		<property name="targetURL" value="https://www.reasonwhy.es/actualidad/anuncio-navidad-coca-cola-2018" />
-		<property name="creditCard" ref="creditCard1"/>
-		<property name="sponsor" ref="sponsor1"/>
-	</bean>
-
-	<bean id="sponsorship2" class="domain.Sponsorship">
-		<property name="banner" value="https://www.reasonwhy.es/sites/default/files/anuncio-coca-cola-navidad.png" />
-		<property name="targetURL" value="https://www.reasonwhy.es/actualidad/anuncio-navidad-coca-cola-2018" />
-		<property name="creditCard" ref="creditCard1"/>
-		<property name="sponsor" ref="sponsor1"/>
-	</bean>
-
-
-	<!-- CREDIT CARD -->
-
-	<bean id="creditCard1" class="datatype.CreditCard">
-		<property name="holderName" value="José Gil Ruiz"/>
-		<property name="brandName" value="VISA" />
-		<property name="number" value="4762107783208898" />
-		<property name="expirationMonth" value="6" />
-		<property name="expirationYear" value="2026" />
-		<property name="CVV" value="862" />
-	</bean>
-
-	<!-- RECIPIENT -->
-
-	<bean id="report1" class="domain.Report">
-		<property name="originalityScore" value="5"/>
-		<property name="readabilityScore" value="5" />
-		<property name="qualityScore" value="5" />
-		<property name="decision" value="ACCEPT" />
-		<property name="reviewer" ref="reviewer1" />
-		<property name="submission" ref="submission2" />
-	</bean>
-
-	<bean id="report2" class="domain.Report">
-		<property name="originalityScore" value="5"/>
-		<property name="readabilityScore" value="5" />
-		<property name="qualityScore" value="5" />
-		<property name="decision" value="ACCEPT" />
-		<property name="reviewer" ref="reviewer2" />
-		<property name="submission" ref="submission2" />
-	</bean>
-
-	<!-- SUBMISSION -->
-
-	<bean id="submission1" class="domain.Submission">
-		<property name="ticker" value="ABC-1234"/>
-		<property name="moment" value="12/15/2017 12:00" />
-		<property name="status" value="UNDER-REVIEW" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference1"/>
-		<property name="isAssigned" value="false"/>
-		<property name="isCameraReady" value="false"/>
-	</bean>
-
-	<bean id="submission2" class="domain.Submission">
-		<property name="ticker" value="ABC-2345"/>
-		<property name="moment" value="01/01/2017 12:00" />
-		<property name="status" value="UNDER-REVIEW" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference2"/>
-		<property name="isAssigned" value="true"/>
-		<property name="isCameraReady" value="false"/>
-	</bean>
-
-	<bean id="submission3" class="domain.Submission">
-		<property name="ticker" value="ABC-3456"/>
-		<property name="moment" value="01/01/2017 12:00" />
-		<property name="status" value="ACCEPTED" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference3"/>
-		<property name="isAssigned" value="true"/>
-		<property name="isCameraReady" value="false"/>
-	</bean>
-
-	<bean id="submission4" class="domain.Submission">
-		<property name="ticker" value="ABC-4567"/>
-		<property name="moment" value="01/01/2017 12:00" />
-		<property name="status" value="ACCEPTED" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference4"/>
-		<property name="isAssigned" value="true"/>
-		<property name="isCameraReady" value="true"/>
-	</bean>
-
-	<bean id="submission5" class="domain.Submission">
-		<property name="ticker" value="ABC-5678"/>
-		<property name="moment" value="01/01/2017 12:00" />
-		<property name="status" value="ACCEPTED" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference5"/>
-		<property name="isAssigned" value="true"/>
-		<property name="isCameraReady" value="true"/>
-	</bean>
-
-	<bean id="submission6" class="domain.Submission">
-		<property name="ticker" value="ABC-6789"/>
-		<property name="moment" value="01/01/2017 12:00" />
-		<property name="status" value="ACCEPTED" />
-		<property name="author" ref="author1" />
-		<property name="paper" ref="paper1" />
-		<property name="conference" ref="conference6"/>
-		<property name="isAssigned" value="true"/>
-		<property name="isCameraReady" value="true"/>
-	</bean>
-
-	<!-- CONFERENCE -->
-
-	<bean id="conference1" class="domain.Conference">
-		<property name="title" value="conferenceBeforeSubmissionDL"/>
-		<property name="acronym" value="CF1"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2021 12:00"/>
-		<property name="notificationDeadline" value="01/01/2022 10:00" />
-		<property name="cameraReadyDeadline" value="01/01/2022 17:00" />
-		<property name="startDate" value="01/01/2022 19:00" />
-		<property name="endDate" value="01/02/2022 19:00" />
-		<property name="summary" value="Data conferencia" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-				<ref bean="Comment1"/>
-				<ref bean="Comment2"/>
-			</list>
-		</property>
-		<property name="registrations">
-			<list>
-				<ref bean="Registration1"/>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="conference2" class="domain.Conference">
-		<property name="title" value="conferenceBetweenSubmissionDLAndNotificationDL"/>
-		<property name="acronym" value="CF2"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2018 12:00"/>
-		<property name="notificationDeadline" value="01/01/2021 10:00" />
-		<property name="cameraReadyDeadline" value="01/01/2021 17:00" />
-		<property name="startDate" value="01/01/2021 19:00" />
-		<property name="endDate" value="01/02/2021 19:00" />
-		<property name="summary" value="Data cosa" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="conference3" class="domain.Conference">
-		<property name="title" value="conferenceBetweenNotificationDLAndCameraReadyDL"/>
-		<property name="acronym" value="CF2"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2018 12:00"/>
-		<property name="notificationDeadline" value="02/02/2018 10:00" />
-		<property name="cameraReadyDeadline" value="01/01/2021 17:00" />
-		<property name="startDate" value="01/01/2021 19:00" />
-		<property name="endDate" value="01/02/2021 19:00" />
-		<property name="summary" value="Data hola" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="conference4" class="domain.Conference">
-		<property name="title" value="conferenceBetweenCameraReadyDLAndStartDate"/>
-		<property name="acronym" value="CF2"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2018 12:00"/>
-		<property name="notificationDeadline" value="02/02/2018 10:00" />
-		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
-		<property name="startDate" value="01/01/2021 19:00" />
-		<property name="endDate" value="01/02/2021 19:00" />
-		<property name="summary" value="Data data" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="conference5" class="domain.Conference">
-		<property name="title" value="conferenceBetweenStartDateAndEndDate"/>
-		<property name="acronym" value="CF2"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2018 12:00"/>
-		<property name="notificationDeadline" value="02/02/2018 10:00" />
-		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
-		<property name="startDate" value="04/04/2018 19:00" />
-		<property name="endDate" value="01/01/2021 20:00" />
-		<property name="summary" value="Todo el data" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="conference6" class="domain.Conference">
-		<property name="title" value="conferenceAfterEndDate"/>
-		<property name="acronym" value="CF2"/>
-		<property name="venue" value="Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla, 41012 Sevilla"/>
-		<property name="moment" value="01/01/2019 12:00"/>
-		<property name="submissionDeadline" value="01/01/2018 12:00"/>
-		<property name="notificationDeadline" value="02/02/2018 10:00" />
-		<property name="cameraReadyDeadline" value="03/03/2018 17:00" />
-		<property name="startDate" value="04/04/2018 19:00" />
-		<property name="endDate" value="05/05/2018 20:00" />
-		<property name="summary" value="Mas data" />
-		<property name="fee" value="2" />
-		<property name="isFinal" value="true" />
-		<property name="category" ref="Tools"/>
-		<property name="comments">
-			<list>
-			</list>
-		</property>
-	</bean>
-
-
-	<!-- REGISTRATION -->
-	<bean id="Registration1" class="domain.Registration">
-		<property name="author" ref="author1"/>
-		<property name="moment" value="01/01/2022 15:00"/>
-		<property name="creditCard" ref="creditCard1"/>
-	</bean>
 
 	<!-- CATEGORY -->
 
@@ -707,41 +275,6 @@
 		</property>
 	</bean>
 
-	<!-- TUTORIAL -->
-	<bean id ="Tutorial1" class="domain.Tutorial">
-		<property name="title" value="tutorial1"/>
-		<property name="startMoment" value="01/01/2022 19:00"/>
-		<property name="duration" value="2"/>
-		<property name="room" value="room 1"/>
-		<property name="summary" value="summary"/>
-		<property name="attachments">
-			<list>
-
-			</list>
-		</property>
-		<property name="speakerName" value="José Luis"/>
-		<property name="comments">
-			<list>
-
-			</list>
-		</property>
-		<property name="conference" ref="conference1"/>
-	</bean>
-
-	<!-- SECTION -->
-	<bean id="Section1" class="domain.Section">
-		<property name="title" value="section1"/>
-		<property name="summary" value="summary"/>
-		<property name="pictures">
-			<list>
-
-			</list>
-		</property>
-		<property name="tutorial" ref="Tutorial1"/>
-	</bean>
-
-
-
 	<!-- TOPIC -->
 	<bean id="INQUIRY" class="domain.Topic">
 		<property name="nameEn" value="INQUIRY"/>
@@ -770,69 +303,6 @@
 	<bean id="OTHER" class="domain.Topic">
 		<property name="nameEn" value="OTHER"/>
 		<property name="nameEs" value="OTRO"/>
-	</bean>
-
-	<!-- MESSAGE -->
-	<bean id="Message1" class="domain.Message">
-		<property name="moment" value="01/01/2018 19:00"/>
-		<property name="subject" value="Prueba"/>
-		<property name="body" value="Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
-		<property name="sender" ref="author1"/>
-		<property name="recipient" ref="administrator1"/>
-		<property name="topic" ref="OTHER"/>
-		<property name="deletedByRecipient" value="false"/>
-		<property name="deletedBySender" value="false"/>
-	</bean>
-
-	<bean id="Message2" class="domain.Message">
-		<property name="moment" value="01/01/2018 17:00"/>
-		<property name="subject" value="Prueba2"/>
-		<property name="body" value="Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaa 2"/>
-		<property name="sender" ref="administrator1"/>
-		<property name="recipient" ref="reviewer1"/>
-		<property name="topic" ref="INQUIRY"/>
-		<property name="deletedByRecipient" value="false"/>
-		<property name="deletedBySender" value="false"/>
-	</bean>
-
-	<!-- COMMENT -->
-	<bean id="Comment1" class="domain.Comment">
-		<property name="moment" value="10/10/2022"/>
-		<property name="title" value="title"/>
-		<property name="text" value="Texttttttt"/>
-		<property name="actor" ref="administrator1"/>
-	</bean>
-
-	<bean id="Comment2" class="domain.Comment">
-		<property name="moment" value="10/10/2022"/>
-		<property name="title" value="title"/>
-		<property name="text" value="Comment anonymous"/>
-	</bean>
-
-	<!-- PAPER -->
-
-	<bean id="paper1" class="domain.Paper">
-		<property name="title" value="paper1"/>
-		<property name="summary" value="Esto es el paper1" />
-		<property name="documentURL" value="https://si.ua.es/es/documentos/documentacion/pdf-s/mozilla12-pdf.pdf" />
-		<property name="isInSubmission" value="false"/>
-		<property name="authors">
-			<list>
-				<ref bean="author1"/>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="paper2" class="domain.Paper">
-		<property name="title" value="paper2"/>
-		<property name="summary" value="Esto es el paper2" />
-		<property name="documentURL" value="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" />
-		<property name="isInSubmission" value="false"/>
-		<property name="authors">
-			<list>
-				<ref bean="author1"/>
-			</list>
-		</property>
 	</bean>
 
 	<!-- CONFIGURATION -->
@@ -1309,5 +779,5 @@
 			</list>
 		</property>
 	</bean>
-	
+
 </beans>
