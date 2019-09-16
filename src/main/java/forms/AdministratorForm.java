@@ -1,8 +1,10 @@
 package forms;
 
 import domain.Administrator;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class AdministratorForm {
@@ -85,6 +87,8 @@ public class AdministratorForm {
         this.photo = photo;
     }
 
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*[<]?\\w+[@]+[>]?$")
+    @NotBlank
     public String getEmail() {
         return email;
     }

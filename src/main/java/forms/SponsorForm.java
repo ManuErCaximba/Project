@@ -1,6 +1,9 @@
 package forms;
 
 import domain.Sponsor;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.Pattern;
 
 public class SponsorForm {
 
@@ -82,6 +85,8 @@ public class SponsorForm {
         this.photo = photo;
     }
 
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*[<]?\\w+[@][a-zA-Z0-9.]+[>]?$")
+    @NotBlank
     public String getEmail() {
         return email;
     }

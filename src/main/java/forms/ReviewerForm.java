@@ -4,6 +4,7 @@ import domain.Reviewer;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class ReviewerForm {
@@ -88,6 +89,8 @@ public class ReviewerForm {
         this.photo = photo;
     }
 
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*[<]?\\w+[@][a-zA-Z0-9.]+[>]?$")
+    @NotBlank
     public String getEmail() {
         return email;
     }

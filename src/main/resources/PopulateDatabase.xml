@@ -112,7 +112,7 @@
 		<property name="name" value="admin1" />
 		<property name="surname" value="admin1" />
 		<property name="photo" value="https://image.shutterstock.com/image-photo/stock-image-man-shouting-pointing-600w-50205055.jpg" />
-		<property name="email" value="admin1@gmail.com" />
+		<property name="email" value="admin1@" />
 		<property name="phoneNumber" value="666778899" />
 		<property name="address" value="C/admin1/Nº5" />
 

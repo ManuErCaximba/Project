@@ -16,7 +16,6 @@ public class Actor extends DomainEntity {
     private String middleName;
     private String surname;
     private String photo;
-    private String email;
     private String phoneNumber;
     private String address;
 
@@ -53,16 +52,6 @@ public class Actor extends DomainEntity {
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    @Email
-    @NotBlank
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhoneNumber() {
