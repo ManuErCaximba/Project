@@ -163,8 +163,8 @@ public class MessageService {
 
         message.setSender(admins.get(random));
         message.setRecipient(author);
-        message.setSubject("Conference registration \\n Registro en conferencia");
-        message.setBody("You have successfully registered in the "+conference.getTitle()+" conference \\n Se ha registrado correctamente en la conferencia "+conference.getTitle()+".");
+        message.setSubject("Conference registration \n Registro en conferencia");
+        message.setBody("You have successfully registered in the "+conference.getTitle()+" conference \n Se ha registrado correctamente en la conferencia "+conference.getTitle()+".");
 
         Topic registrationTopic = this.topicService.getRegistrationtTopic();
         Assert.notNull(registrationTopic);
