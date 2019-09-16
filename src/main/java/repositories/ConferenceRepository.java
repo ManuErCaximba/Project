@@ -47,6 +47,6 @@ public interface ConferenceRepository extends JpaRepository<Conference, Integer>
     @Query("select c from Conference c where (CURRENT_DATE >= c.cameraReadyDeadline) and CURRENT_DATE <= c.startDate")
     Collection<Conference> getConferencesCameraReadyLaterNow();
 
-    @Query("select c from Conference c where c.isFinal = true ")
+    @Query("select c from Conference c where c.isFinal = true order by category")
     Collection<Conference> findAllFinalOrderByCategory();
 }
