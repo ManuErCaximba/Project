@@ -75,6 +75,7 @@
 					<li><a href="conference/listForthcoming.do"><spring:message code="master.page.conference.listForthcoming" /></a></li>
 					<li><a href="conference/listPast.do"><spring:message code="master.page.conference.listPast" /></a></li>
 					<li><a href="conference/listRunning.do"><spring:message code="master.page.conference.listRunning" /></a></li>
+					<li><a href="conference/listAllNotLogged.do"><spring:message code="master.page.conference.listAllNotLogged" /></a></li>
 					<security:authorize access="hasRole('ADMIN')">
 						<li><a href="conference/administrator/listConferenceAdminMenu.do"><spring:message code="master.page.administrator.conferences" /></a></li>
 						<li><a href="conference/administrator/listAll.do"><spring:message code="master.page.conference.listAll" /></a></li>

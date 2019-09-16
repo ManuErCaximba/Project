@@ -56,6 +56,11 @@
 		<put-attribute name="body" value="/views/conference/listAll.jsp" />
 	</definition>
 
+	<definition name="conference/listAllNotLogged" extends="master.page">
+		<put-attribute name="title" value="Conferencias ordenadas por categoría" />
+		<put-attribute name="body" value="/views/conference/listAllNotLogged.jsp" />
+	</definition>
+
 	<definition name="conference/showNotLogged" extends="master.page">
 		<put-attribute name="title" value="Conferencia" />
 		<put-attribute name="body" value="/views/conference/showNotLogged.jsp" />

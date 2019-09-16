@@ -215,7 +215,7 @@ public class ConferenceController extends AbstractController {
     }
 
 
-    //List all conferences
+    //List all conferences admin
 
     @RequestMapping(value = "/administrator/listAll", method = RequestMethod.GET)
     public ModelAndView listAll(){
@@ -231,6 +231,28 @@ public class ConferenceController extends AbstractController {
 
         return result;
 
+    }
+
+    //List all conferences order by categories
+    @RequestMapping(value = "/listAllNotLogged", method = RequestMethod.GET)
+    public ModelAndView listAllNotLogged(){
+        ModelAndView result;
+        try {
+            Collection<Conference> conferences;
+            conferences = this.conferenceService.findAllFinalOrderByCategory();
+            Assert.notNull(conferences);
+            final String language = LocaleContextHolder.getLocale().getLanguage();
+
+            result = new ModelAndView("conference/listAllNotLogged");
+            result.addObject("conferences", conferences);
+            result.addObject("lang", language);
+            result.addObject("requestURI", "conference/listAllNotLogged.do");
+            result.addObject("now", new Date());
+        } catch (Exception oops) {
+            result = new ModelAndView("redirect:/");
+        }
+
+        return result;
     }
 
     //Menu Admin of conferences list by criteria...
