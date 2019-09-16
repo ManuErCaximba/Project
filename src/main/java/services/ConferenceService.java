@@ -204,6 +204,13 @@ public class ConferenceService {
         return res;
     }
 
+    public Collection<Conference> findAllFinalOrderByCategory(){
+        Collection<Conference> res;
+        res = this.conferenceRepository.findAllFinalOrderByCategory();
+        Assert.notNull(res);
+        return res;
+    }
+
     public Conference reconstruct(Conference conference, BindingResult binding){
         Conference result;
         if (conference.getId() == 0){
