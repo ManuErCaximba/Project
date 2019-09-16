@@ -102,9 +102,14 @@ public class ReportController extends AbstractController {
         final Report report;
 
         try {
-            final Reviewer reviewer = this.reviewerService.findOne(this.actorService.getActorLogged().getId());
+            final Actor actor = this.actorService.getActorLogged();
             report = this.reportService.findOne(reportId);
-            Assert.isTrue(report.getReviewer().equals(reviewer));
+
+            if(actor.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("AUTHOR")){
+                Assert.isTrue(report.getSubmission().getAuthor().getId() == actor.getId());
+            } else if (actor.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("REVIEWER")){
+                Assert.isTrue(report.getReviewer().getId() == actor.getId());
+            }
             result = new ModelAndView("report/show");
             result.addObject("report", report);
         } catch (final Exception e) {

@@ -148,6 +148,7 @@ public class AdministratorController extends AbstractController {
         try {
             final Actor user = this.actorService.getActorLogged();
             final Administrator a = this.administratorService.findOne(user.getId());
+            Assert.isTrue(user.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("ADMIN"));
             Assert.notNull(a);
             result = this.editModelAndView(a);
         } catch(Exception oops){

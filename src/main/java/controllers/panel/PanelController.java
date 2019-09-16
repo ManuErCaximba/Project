@@ -31,9 +31,6 @@ public class PanelController extends AbstractController {
     @Autowired
     private ConferenceService conferenceService;
 
-    @Autowired
-    private ActorService actorService;
-
     // List --------------------------------------------------------------------------
     /*
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -68,7 +65,6 @@ public class PanelController extends AbstractController {
         final Activity panel;
 
         try {
-            final Administrator administrator = (Administrator) this.actorService.getActorLogged();
             result = new ModelAndView("panel/show");
             panel = this.activityService.findOne(panelId);
             result.addObject("panel", panel);

@@ -102,6 +102,8 @@ public class SectionController extends AbstractController{
             result.addObject("tutorials", tutorials);
         } catch (Throwable oops){
             result = this.createEditModelAndView(section, "section.commit.error");
+            result.addObject("section", section);
+            result.addObject("tutorials", tutorials);
         }
         return result;
     }

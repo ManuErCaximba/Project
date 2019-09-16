@@ -17,6 +17,7 @@ import services.TutorialService;
 
 import javax.validation.ValidationException;
 import java.util.Collection;
+import java.util.Date;
 
 @Controller
 @RequestMapping("tutorial")
@@ -96,8 +97,18 @@ public class TutorialController extends AbstractController {
     public ModelAndView save(Tutorial tutorial, BindingResult binding){
         ModelAndView result;
         Collection<Conference> conferences = this.conferenceService.getAllFutureConferences();
+        Conference conference;
+        Date schedule = new Date();
+
         try{
+            conference = tutorial.getConference();
             Assert.notNull(conferences);
+            Assert.notNull(tutorial);
+            schedule.setTime(tutorial.getStartMoment().getTime() + (tutorial.getDuration() * 60000));
+            Assert.isTrue(tutorial.getStartMoment().after(conference.getStartDate()) &&
+                    tutorial.getStartMoment().before(conference.getEndDate()));
+            Assert.isTrue(schedule.after(conference.getStartDate()) &&
+                    schedule.before(conference.getEndDate()));
             tutorial = this.tutorialService.reconstruct(tutorial, binding);
             tutorial = this.tutorialService.save(tutorial);
             result = new ModelAndView("redirect:/");
@@ -105,8 +116,10 @@ public class TutorialController extends AbstractController {
             result = this.createEditModelAndView(tutorial);
             result.addObject("tutorial", tutorial);
             result.addObject("conferences", conferences);
-        } catch (Throwable oops){
+        } catch (Exception oops){
             result = this.createEditModelAndView(tutorial, "tutorial.commit.error");
+            result.addObject("tutorial", tutorial);
+            result.addObject("conferences", conferences);
         }
         return result;
     }

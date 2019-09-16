@@ -139,4 +139,8 @@ public class FinderService {
     public Finder searchByActor(int actorId){
         return this.finderRepository.searchByActor(actorId);
     }
+
+    public Collection<Conference> getConferenceByKeyword(String keyword){
+        return this.finderRepository.getConferenceByKeyword(keyword);
+    }
 }

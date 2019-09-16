@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import javax.validation.ValidationException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 @Controller
 @RequestMapping("registration")
@@ -88,6 +89,9 @@ public class RegistrationController extends AbstractController {
             Collection<String> brandList = this.configurationService.findAll().iterator().next().getCreditCardMakes();
             Assert.notNull(brandList);
             Registration registration = this.registrationService.create();
+            Date now = new Date();
+            Conference conference = this.conferenceService.findOne(conferenceId);
+            Assert.isTrue(now.before(conference.getStartDate()));
             result = new ModelAndView("registration/author/create");
             result.addObject("registration", registration);
             result.addObject("brandList", brandList);

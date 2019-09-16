@@ -1,6 +1,7 @@
 package controllers.category;
 
 import controllers.AbstractController;
+import domain.Administrator;
 import domain.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import services.ActorService;
+import services.AdministratorService;
 import services.CategoryService;
 
 import javax.validation.ValidationException;
@@ -22,6 +25,12 @@ public class CategoryController extends AbstractController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private AdministratorService administratorService;
+
+    @Autowired
+    private ActorService actorService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView list(){
@@ -45,6 +54,8 @@ public class CategoryController extends AbstractController {
         Collection<Category> categories = this.categoryService.findAll();
         try{
             Category category = this.categoryService.create();
+            Administrator admin = this.administratorService.findOne(this.actorService.getActorLogged().getId());
+            Assert.isTrue(admin.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("ADMIN"));
             result = new ModelAndView("category/administrator/create");
             result.addObject("category", category);
             result.addObject("categories", categories);
@@ -61,6 +72,8 @@ public class CategoryController extends AbstractController {
         try{
             Category category;
             Collection<Category> categories;
+            Administrator admin = this.administratorService.findOne(this.actorService.getActorLogged().getId());
+            Assert.isTrue(admin.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("ADMIN"));
             category = this.categoryService.findOne(categoryId);
             categories = this.categoryService.findAll();
             Assert.notNull(category);
@@ -102,6 +115,8 @@ public class CategoryController extends AbstractController {
         try {
             Category category = this.categoryService.findOne(categoryId);
             Assert.notNull(category);
+            Administrator admin = this.administratorService.findOne(this.actorService.getActorLogged().getId());
+            Assert.isTrue(admin.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("ADMIN"));
             Assert.isTrue(!category.getNameEs().equals("CONFERENCIA") && !category.getNameEn().equals("CONFERENCE"));
             this.categoryService.delete(category);
             result = new ModelAndView("redirect:list.do");
@@ -117,6 +132,8 @@ public class CategoryController extends AbstractController {
         try{
             Category category = this.categoryService.findOne(categoryId);
             final String language = LocaleContextHolder.getLocale().getLanguage();
+            Administrator admin = this.administratorService.findOne(this.actorService.getActorLogged().getId());
+            Assert.isTrue(admin.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("ADMIN"));
             Assert.notNull(category);
             result = new ModelAndView("category/administrator/show");
             result.addObject("category", category);

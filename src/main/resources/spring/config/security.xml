@@ -33,7 +33,6 @@
 		<security:intercept-url pattern="/images/**" access="permitAll" /> 
 		<security:intercept-url pattern="/scripts/**" access="permitAll" /> 
 		<security:intercept-url pattern="/styles/**" access="permitAll" />
-		<security:intercept-url pattern="/gdpr/**" access="permitAll" />
 
 		<security:intercept-url pattern="/views/misc/index.jsp" access="permitAll" /> 
 
@@ -55,6 +54,9 @@
 
 		<security:intercept-url pattern="/sponsor/create.do" access="permitAll" />
 		<security:intercept-url pattern="/author/create.do" access="permitAll" />
+		<security:intercept-url pattern="/search.do" access="permitAll" />
+		<security:intercept-url pattern="/search/result.do" access="permitAll" />
+		<security:intercept-url pattern="/search/result/**" access="permitAll" />
 
 		<security:intercept-url pattern="/sponsor/sponsor/**" access="hasRole('SPONSOR')"/>
 		<security:intercept-url pattern="/sponsorship/sponsor/**" access="hasRole('SPONSOR')"/>
@@ -62,14 +64,14 @@
 		<security:intercept-url pattern="/author/author/**" access="hasRole('AUTHOR')"/>
 		<security:intercept-url pattern="/paper/author/**" access="hasRole('AUTHOR')"/>
 		<security:intercept-url pattern="/submission/author/**" access="hasRole('AUTHOR')"/>
-		<security:intercept-url pattern="/submission/show.do" access="permitAll"/>
+		<security:intercept-url pattern="/submission/show.do" access="hasAnyRole('AUTHOR, ADMIN')"/>
 		<security:intercept-url pattern="/panel/show.do" access="permitAll"/>
 		<security:intercept-url pattern="/panel/administrator/**" access="hasRole('ADMIN')"/>
 		<security:intercept-url pattern="/submission/administrator/**" access="hasRole('ADMIN')"/>
 		<security:intercept-url pattern="/reviewer/reviewer/**" access="hasRole('REVIEWER')"/>
 		<security:intercept-url pattern="/report/reviewer/**" access="hasRole('REVIEWER')"/>
 		<security:intercept-url pattern="/report/author/**" access="hasRole('AUTHOR')"/>
-		<security:intercept-url pattern="/report/show.do" access="permitAll"/>
+		<security:intercept-url pattern="/report/show.do" access="hasAnyRole('AUTHOR, REVIEWER')"/>
 
 
 		<security:intercept-url pattern="/conference/listForthcoming.do" access="permitAll" />

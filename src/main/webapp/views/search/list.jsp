@@ -17,36 +17,30 @@
 
 </head>
 <body>
-<security:authorize access="hasRole('REVIEWER')">
 
-    <display:table name="reports" id="row" requestURI="${requestURI}"
+    <display:table name="conferences" id="row" requestURI="search/result.do"
                    pagesize="5" class="displaytag">
 
-        <spring:message code="report.originalityScore" var="originalityScore"/>
-        <display:column title="${originalityScore}">
-            <jstl:out value="${row.originalityScore}"/>
+        <spring:message code="conference.title" var="title"/>
+        <display:column title="${title}">
+            <jstl:out value="${row.title}"/>
         </display:column>
 
-        <spring:message code="report.qualityScore" var="qualityScore"/>
-        <display:column title="${qualityScore}">
-            <jstl:out value="${row.qualityScore}"/>
+        <spring:message code="conference.fee" var="fee"/>
+        <display:column title="${fee}">
+            <jstl:out value="${row.fee}"/>
         </display:column>
 
-        <spring:message code="report.readabilityScore" var="readabilityScore"/>
-        <display:column title="${readabilityScore}">
-            <jstl:out value="${row.readabilityScore}"/>
+        <spring:message code="conference.startDate" var="startDate"/>
+        <display:column title="${startDate}">
+            <jstl:out value="${row.startDate}"/>
         </display:column>
 
         <display:column>
-            <acme:cancel url="report/show.do?reportId=${row.id}" code="button.show"/>
+            <acme:cancel url="conference/showNotLogged.do?conferenceId=${row.id}" code="button.show"/>
         </display:column>
 
     </display:table>
 
-    <div>
-        <acme:cancel url="/" code="button.goBack"/>
-    </div>
-
-</security:authorize>
 </body>
 </html>

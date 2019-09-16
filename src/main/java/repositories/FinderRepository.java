@@ -40,4 +40,7 @@ public interface FinderRepository extends JpaRepository<Finder, Integer> {
 
     @Query("select c from Conference c where c.isFinal = TRUE")
     Collection<Conference> findAllNotFinal();
+
+    @Query("select c from Conference c where (c.venue like %?1% or c.summary like %?1% or c.title like %?1%) and c.isFinal = TRUE")
+    Collection<Conference> getConferenceByKeyword(String keyword);
 }

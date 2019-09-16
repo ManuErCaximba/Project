@@ -39,9 +39,6 @@ public class SubmissionController extends AbstractController {
     private ReviewerService reviewerService;
 
     @Autowired
-    private ReportService reportService;
-
-    @Autowired
     private MessageService messageService;
 
     @Autowired
@@ -53,7 +50,6 @@ public class SubmissionController extends AbstractController {
         ModelAndView result;
         Collection<Submission> submissions;
         Actor actor = this.actorService.getActorLogged();
-        Date now = new Date();
 
         submissions = this.submissionService.getSubmissionsByAuthor(actor.getId());
         this.submissionService.update();
@@ -152,7 +148,11 @@ public class SubmissionController extends AbstractController {
         final Submission submission;
 
         try {
+            Actor actor = this.actorService.getActorLogged();
             submission = this.submissionService.findOne(submissionId);
+            if(actor.getUserAccount().getAuthorities().iterator().next().getAuthority().equals("AUTHOR")) {
+                Assert.isTrue(submission.getAuthor().getId() == actor.getId());
+            }
             this.submissionService.update();
             result = new ModelAndView("submission/show");
             result.addObject("submission", submission);

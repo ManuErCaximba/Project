@@ -199,6 +199,7 @@ public class SubmissionService {
 
     public String tickerGenerator(Actor actor){
         String result;
+        String charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         String nPart;
         String lPart;
 
@@ -212,13 +213,13 @@ public class SubmissionService {
         lPart += Character.toString(actor.getSurname().charAt(0)).toUpperCase();
 
         Random random = new Random();
-        int n = random.nextInt(10);
-        nPart = String.valueOf(n);
+        int n = random.nextInt(charset.length());
+        nPart = String.valueOf(charset.charAt(n));
 
         for(int i=0; i<3; i++){
             random = new Random();
-            n = random.nextInt(10);
-            nPart += String.valueOf(n);
+            n = random.nextInt(charset.length());
+            nPart += String.valueOf(charset.charAt(n));
         }
 
         result = lPart + "-" + nPart;

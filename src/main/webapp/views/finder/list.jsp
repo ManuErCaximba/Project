@@ -37,7 +37,7 @@
         </display:column>
 
         <display:column>
-            <acme:cancel url="conference/administrator/show.do?conferenceId=${row.id}" code="button.show"/>
+            <acme:cancel url="conference/showNotLogged.do?conferenceId=${row.id}" code="button.show"/>
         </display:column>
 
     </display:table>

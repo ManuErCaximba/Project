@@ -49,6 +49,7 @@
 		<value>/views/presentation/messages</value>
 		<value>/views/registration/messages</value>
 		<value>/views/panel/messages</value>
+		<value>/views/search/messages</value>
 
 
 	</util:list>

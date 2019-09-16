@@ -80,7 +80,6 @@ public class PresentationController extends AbstractController {
         final Presentation presentation;
 
         try {
-            final Administrator administrator = (Administrator) this.actorService.getActorLogged();
             result = new ModelAndView("presentation/show");
             presentation = this.presentationService.findOne(presentationId);
             result.addObject("presentation", presentation);

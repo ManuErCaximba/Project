@@ -152,7 +152,10 @@ public class SponsorshipController extends AbstractController {
     protected ModelAndView createEditModelAndView(final Sponsorship sponsorship) {
         ModelAndView result;
 
-        result = this.createEditModelAndView(new SponsorshipForm(sponsorship), null, null);
+        if(sponsorship.getId() == 0)
+            result = this.createEditModelAndView(new SponsorshipForm(), null, null);
+        else
+            result = this.createEditModelAndView(new SponsorshipForm(sponsorship), null, null);
 
         return result;
     }

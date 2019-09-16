@@ -14,17 +14,22 @@
 
 </head>
 <body>
-<fieldset>
-    <legend><b><spring:message code="report.data"/></b></legend>
-    <p><acme:showtext code="report.originalityScore" value="${report.originalityScore}" fieldset="false"/></p>
-    <p><acme:showtext code="report.qualityScore" value="${report.qualityScore}" fieldset="false"/></p>
-    <p><acme:showtext code="report.readabilityScore" value="${report.readabilityScore}" fieldset="false"/></p>
-    <p><acme:showtext code="report.decision" value="${report.decision}" fieldset="false"/></p>
-    <p><acme:showtext code="report.comment" value="${report.comment}" fieldset="false"/></p>
-</fieldset>
-<br>
-<input type="button" name="cancel"
-       value="<spring:message code="button.goBack" />"
-       onclick="javascript: window.history.back();" />
+
+    <form:form id="searchForm" action="search.do" modelAttribute="searchForm">
+
+        <fieldset>
+
+            <legend><spring:message code="search.data" /></legend>
+
+            <acme:textboxbsa code="finder.keyword" path="keyword"/>
+
+        </fieldset>
+
+
+        <acme:submit name="search" code="button.save"/>
+        <acme:cancel code="button.cancel" url="/"/>
+
+    </form:form>
+
 </body>
 </html>

@@ -99,7 +99,7 @@ public class Activity extends DomainEntity {
     private Conference conference;
     private Collection<Comment> comments;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     public Conference getConference() {
         return conference;
     }
