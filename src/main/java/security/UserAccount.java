@@ -20,6 +20,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -52,7 +53,7 @@ public class UserAccount extends DomainEntity implements UserDetails {
 	private String					password;
 	private Collection<Authority>	authorities;
 
-
+	@Pattern(regexp = "^[a-zA-Z0-9._-]{5,}$")
 	@Size(min = 5, max = 32)
 	@Column(unique = true)
 	@Override

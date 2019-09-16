@@ -3,7 +3,9 @@ package forms;
 import domain.Sponsor;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class SponsorForm {
 
@@ -111,6 +113,9 @@ public class SponsorForm {
         this.address = address;
     }
 
+    @Pattern(regexp = "^[a-zA-Z0-9._-]{5,}$")
+    @Size(min = 5, max = 32)
+    @Column(unique = true)
     public String getUsername() {
         return username;
     }
@@ -119,6 +124,7 @@ public class SponsorForm {
         this.username = username;
     }
 
+    @Size(min = 5, max = 32)
     public String getPassword() {
         return password;
     }

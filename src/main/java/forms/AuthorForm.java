@@ -113,6 +113,7 @@ public class AuthorForm {
         this.address = address;
     }
 
+    @Pattern(regexp = "^[a-zA-Z0-9._-]{5,}$")
     @Size(min = 5, max = 32)
     @Column(unique = true)
     public String getUsername() {
