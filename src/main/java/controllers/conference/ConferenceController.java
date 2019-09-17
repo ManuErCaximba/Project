@@ -332,7 +332,6 @@ public class ConferenceController extends AbstractController {
             panels = this.activityService.getPanelsByConference(conferenceId);
             Actor actor = this.actorService.getActorLogged();
             Assert.isTrue(actor instanceof Administrator);
-            Assert.isTrue(conference.getIsFinal());
             Assert.notNull(conference);
             Assert.notNull(tutorials);
             Assert.notNull(presentations);
