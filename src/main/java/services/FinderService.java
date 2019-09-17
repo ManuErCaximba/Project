@@ -46,9 +46,7 @@ public class FinderService {
 
     public Finder save(Finder finder){
         Collection<Conference> conferences;
-        final Actor actor = this.actorService.getActorLogged();
 
-        Assert.notNull(actor);
         Assert.notNull(finder);
 
         conferences = this.search(finder);
@@ -61,9 +59,6 @@ public class FinderService {
 
         finder.setConferences(conferences);
 
-        if(finder.getId() == 0) {
-            finder.setActor(actor);
-        }
 
         finder = this.finderRepository.save(finder);
 

@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.transaction.Transactional;
 
 import domain.Actor;
+import domain.Finder;
 import forms.SponsorForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -32,6 +33,9 @@ public class SponsorService {
 
 	@Autowired
 	private Validator validator;
+
+	@Autowired
+	private FinderService finderService;
 
 
 	public Collection<Sponsor> findAll() {
@@ -75,6 +79,9 @@ public class SponsorService {
 			sponsor.getUserAccount().setPassword(res);
 		}
 		result = this.sponsorRepository.save(sponsor);
+		Finder finder = this.finderService.create();
+		finder.setActor(result);
+		this.finderService.save(finder);
 		return result;
 	}
 

@@ -6,9 +6,7 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
-import domain.Actor;
-import domain.Paper;
-import domain.Submission;
+import domain.*;
 import forms.AuthorForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -20,7 +18,6 @@ import org.springframework.validation.Validator;
 import repositories.AuthorRepository;
 import security.Authority;
 import security.UserAccount;
-import domain.Author;
 
 @Service
 @Transactional
@@ -34,6 +31,9 @@ public class AuthorService {
 
 	@Autowired
 	private SubmissionService submissionService;
+
+	@Autowired
+	private FinderService finderService;
 
 	@Autowired
 	private Validator validator;
@@ -79,6 +79,9 @@ public class AuthorService {
 			author.getUserAccount().setPassword(res);
 		}
 		result = this.authorRepository.save(author);
+		Finder finder = this.finderService.create();
+		finder.setActor(result);
+		this.finderService.save(finder);
 		return result;
 	}
 

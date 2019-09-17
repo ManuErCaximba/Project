@@ -1,9 +1,6 @@
 package services;
 
-import domain.Actor;
-import domain.Administrator;
-import domain.Reviewer;
-import domain.Submission;
+import domain.*;
 import forms.ReviewerForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -35,6 +32,8 @@ public class ReviewerService {
     private ActorService actorService;
     @Autowired
     private Validator validator;
+    @Autowired
+    private FinderService finderService;
 
     //CRUD Methods
     public Collection<Reviewer> findAll() {
@@ -96,6 +95,9 @@ public class ReviewerService {
             reviewer.getUserAccount().setPassword(res);
         }
         result = this.reviewerRepository.save(reviewer);
+        Finder finder = this.finderService.create();
+        finder.setActor(result);
+        this.finderService.save(finder);
         return result;
     }
 

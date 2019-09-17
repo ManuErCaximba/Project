@@ -35,6 +35,8 @@ public class AdministratorService {
     private Validator validator;
     @Autowired
     private ConfigurationService configurationService;
+    @Autowired
+    private FinderService finderService;
 
     //CRUD Methods
     public Administrator create() {
@@ -95,6 +97,9 @@ public class AdministratorService {
             administrator.getUserAccount().setPassword(res);
         }
         result = this.administratorRepository.save(administrator);
+        Finder finder = this.finderService.create();
+        finder.setActor(result);
+        this.finderService.save(finder);
         return result;
     }
 
